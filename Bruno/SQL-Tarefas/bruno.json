@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "SQL-Tarefas",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

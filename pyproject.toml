@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = ""
+authors = ["me"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.110.1"}
+pytest = "^8.1.1"
+dojo-toolkit = "^0.8.1"
+unicorn = "^2.0.1.post1"
+uvicorn = "^0.29.0"
+ulid-py = "^1.1.0"
+pydantic = "^2.7.1"
+sqlmodel = "^0.0.18"
+psycopg2 = "^2.9.9"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.3.4"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "I",  # isort
+    "C4", # flake8-comprehensions
+    "F",  # pyflakes
+    "E",  # pycodestyle
+    "TID",  # flake8-tidy-imports
+    "RUF", # ruff-internal
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "C401",  # generator syntax for sets vs always force set comprehension
+    "PLC0414",  # allow explicit re-exports us<LeftMouse>ing 'as' without forcing __all__
+    "C901", # mccabe
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
